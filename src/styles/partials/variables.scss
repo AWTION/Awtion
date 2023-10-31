@@ -1,0 +1,28 @@
+// Variables 
+$width-mobile: 320px;
+$width-tablet: 768px;
+$width-desktop: 1280px;
+
+// Max & Min screen sizes 
+$max-width: 63.75rem;
+$min-width: $width-mobile; 
+
+// Spacing 
+$spacing-unit: .5rem; 
+$spacing-unit--small: 1rem; 
+$spacing-unit--medium: 1.5rem;
+$spacing-unit--large: 2.25rem;
+
+
+// Padding
+$padding-before-headlines--mobile: $spacing-unit--medium; 
+$padding-after-headlines--mobile: $spacing-unit--small;
+$padding-between-components--mobile: $spacing-unit--small;
+$padding-before-headlines--tablet: $spacing-unit--large; 
+$padding-after-headlines--tablet: $spacing-unit--medium;
+$padding-between-components--tablet: $spacing-unit--medium;
+
+// Margin 
+$page-margin--mobile: $spacing-unit--small;
+$page-margin--tablet: $spacing-unit--medium;
+$page-margin--tablet: 0; 

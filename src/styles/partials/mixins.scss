@@ -1,0 +1,13 @@
+@use "./variables.scss" as *;
+
+@mixin tablet {
+    @media (min-width: $width-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $width-desktop) {
+        @content;
+    }
+}
