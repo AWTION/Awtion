@@ -19,7 +19,7 @@ const LogInPage = () => {
 
         setValues({
             ...values,
-            [name]: values,
+            [name]: value,
         })
         console.log(values);
     }
