@@ -1,7 +1,8 @@
 import "./Input.scss"
 
 export default function Input({ type, onChangeHandler, placeholder, label, value, name }) {
-    <div>
+  
+  return(<div>
         <label>{label}</label>
         <input type={type}
             placeholder={placeholder}
@@ -9,6 +10,5 @@ export default function Input({ type, onChangeHandler, placeholder, label, value
             value={value}
             name={name}
         />
-    </div>
-
+    </div>)
 }
