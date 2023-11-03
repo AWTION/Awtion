@@ -1,9 +1,12 @@
 import "./Input.scss"
 
-export default function Input () {
-<form action="" className="form">
-    <label htmlFor="" className="label__email">
-        
-    </label>
-</form>
+export default function Input({ type, onChangeHandler, placeholder, label }) {
+    <div>
+        <label>{label}</label>
+        <input type={type}
+            placeholder={placeholder}
+            onChange={onChangeHandler}
+        />
+    </div>
+
 }
