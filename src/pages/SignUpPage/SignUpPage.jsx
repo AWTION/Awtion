@@ -67,7 +67,9 @@ export default function () {
                 <div>By creating an account you have to agree with our terms and conditions.</div>
             </div>
 
-            <Button label="Login" />
+            <Button 
+            type= "Submit"
+            label="Login" />
         </form>
     )
 }
