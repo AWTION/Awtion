@@ -1,8 +1,9 @@
 import "./LogInPage.scss"
 import Input from "../../components/input/Input";
 import Button from "../../components/Button/Button";
-
 import React, { useState } from 'react';
+import { loginFormValidation , passwordValidation} from "../../utils/validator";
+
 
 const LogInPage = () => {
 
@@ -11,30 +12,47 @@ const LogInPage = () => {
         password: "",
     }
 
+    const errorState = {
+        email : false,
+        password :false
+    }
+
     const [values, setValues] = useState(initialValues);
+    const [error, setError] = useState(errorState)
 
     const onChangeHandler = (event) => {
-        // This is the same as doing e.target.name and e.target.value
         const { name, value } = event.target
 
         setValues({
             ...values,
             [name]: value,
         })
-        console.log(values);
+         
+        setError({
+            ...error,
+            [name] : false
+        })
     }
 
-
+    const onSumbitHandler = (event) =>{
+      event.preventDefault();
+      const errorMessage = loginFormValidation(values)
+      setError({
+        email : errorMessage.email,
+        password : !passwordValidation(values.password)
+      })
+    }
 
     return (
-        <form className="login__form">
+        <form className="login__form" onSubmit={(event) => onSumbitHandler(event)}>
             <Input
                 label="Email"
                 name="email"
-                type="email"
                 placeholder="Email Address"
                 value={values.email}
                 onChangeHandler={onChangeHandler}
+                error={error.email}
+                errorMesage={"Invalid Email"}
             />
             <Input
                 label="Password"
@@ -43,8 +61,11 @@ const LogInPage = () => {
                 placeholder="Password"
                 value={values.password}
                 onChangeHandler={onChangeHandler}
+                error={error.password}
+                errorMesage={<ul>Password requires :<li>1 special character</li><li>1 upper case</li>
+       <li>8 to 10 characters long</li></ul> }
             />
-            <Button />
+            <Button type={"Submit"} />
         </form>
     );
 };
