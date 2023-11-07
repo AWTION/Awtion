@@ -1,6 +1,6 @@
 import "./Input.scss"
 
-export default function Input({ type, onChangeHandler, placeholder, label, value, name }) {
+export default function Input({ type, onChangeHandler, placeholder, label, value, name, error, errorMesage }) {
   
   return(<div>
         <label>{label}</label>
@@ -10,5 +10,6 @@ export default function Input({ type, onChangeHandler, placeholder, label, value
             value={value}
             name={name}
         />
+       {error ?<> {errorMesage}</> : ""}
     </div>)
 }
