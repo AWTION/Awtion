@@ -1,6 +1,7 @@
 import "./SignUpPage.scss"
 import Input from "../../components/input/Input"
 import { useState } from "react"
+import Button from "../../components/Button/Button"
 
 export default function () {
 
@@ -59,7 +60,14 @@ export default function () {
                 value={signUpValues.confirmPassword}
                 onChangeHandler={onChangeHandler}
             />
+            <div>
+                <Input
+                    type="checkbox"
+                />
+                <div>By creating an account you have to agree with our terms and conditions.</div>
+            </div>
 
+            <Button label="Login" />
         </form>
     )
 }
