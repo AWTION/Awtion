@@ -2,7 +2,7 @@ import "./LogInPage.scss"
 import Input from "../../components/input/Input";
 import Button from "../../components/Button/Button";
 import React, { useState } from 'react';
-import { loginFormValidation , passwordValidation} from "../../utils/validator";
+import { loginFormValidation } from "../../utils/validator";
 
 
 const LogInPage = () => {
@@ -13,8 +13,8 @@ const LogInPage = () => {
     }
 
     const errorState = {
-        email : false,
-        password :false
+        email: false,
+        password: false
     }
 
     const [values, setValues] = useState(initialValues);
@@ -27,20 +27,19 @@ const LogInPage = () => {
             ...values,
             [name]: value,
         })
-         
+
         setError({
             ...error,
-            [name] : false
+            [name]: false
         })
     }
 
-    const onSumbitHandler = (event) =>{
-      event.preventDefault();
-      const errorMessage = loginFormValidation(values)
-      setError({
-        email : errorMessage.email,
-        password : !passwordValidation(values.password)
-      })
+    const onSumbitHandler = (event) => {
+        event.preventDefault();
+        const errorMessage = loginFormValidation(values)
+        setError(
+            errorMessage
+        )
     }
 
     return (
@@ -63,7 +62,7 @@ const LogInPage = () => {
                 onChangeHandler={onChangeHandler}
                 error={error.password}
                 errorMesage={<ul>Password requires :<li>1 special character</li><li>1 upper case</li>
-       <li>8 to 10 characters long</li></ul> }
+                    <li>8 to 10 characters long</li></ul>}
             />
             <Button type={"Submit"} />
         </form>
