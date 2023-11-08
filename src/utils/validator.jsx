@@ -24,6 +24,15 @@ export function passwordValidation(password) {
 export function loginFormValidation(formData){
     return({
         email:!validator.isEmail(formData.email),
-        password: validator.isEmpty(formData.password),
+        password:passwordValidation(formData.password),
     })
+}
+
+export function signUpFormValidation(formData){
+return ({
+    username:
+    email:
+    password:
+    confirmPassword:
+})
 }
