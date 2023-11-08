@@ -12,6 +12,9 @@ export default function () {
         email: "",
         password: "",
         confirmPassword: "",
+        termsAndConditions: false,
+
+
     }
 
     const errorState = {
@@ -19,6 +22,7 @@ export default function () {
         email: false,
         password: false,
         confirmPassword: false,
+        termsAndConditions: false,
     }
 
     const [signUpValues, setSignUpValues] = useState(initialSignUpValues)
@@ -31,7 +35,6 @@ export default function () {
             ...signUpValues,
             [name]: value,
         })
-        console.log(signUpValues);
 
         setError({
             ...error,
@@ -41,11 +44,11 @@ export default function () {
 
     const onSumbitHandler = (e) => {
         e.preventDefault();
-        signUpFormValidation();
+        setError(signUpFormValidation(signUpValues))
     }
 
     return (
-        <form className="signup__form" onSubmit={onSumbitHandler}>
+        <form className="signup__form" onSubmit={(e) => onSumbitHandler(e)}>
             <h2>Sign Up</h2>
             <div>Create a new account</div>
             <Input
@@ -91,9 +94,14 @@ export default function () {
             />
             <div>
                 <Input
+                    name="termsAndConditions"
                     type="checkbox"
+                    label="By creating an account you have to agree with our terms and conditions."
+                    value={signUpValues.termsAndConditions}
+                    onChangeHandler={onChangeHandler}
+                    error={error.termsAndConditions}
+                    errorMesage={"Please agree to our terms and conditions"}
                 />
-                <div>By creating an account you have to agree with our terms and conditions.</div>
             </div>
 
             <Button
